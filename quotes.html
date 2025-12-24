@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Free Quote | Our Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="/assest/Tab_logo.png">
+    <link rel="apple-touch-icon" href="/assest/Tab_logo.png">
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("FrgjtczvV4fwL7fAR");
+        })();
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+
+        /* Header Styles */
+        .quotes {
+            background-color: #1a3a5f;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .quotes-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .quotes-content p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        /* Left Image Section */
+        .image-section {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .image-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-info {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-info h3 {
+            color: #1a3a5f;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .image-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .info-item i {
+            color: #ff9800;
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        /* Form Container */
+        .form-container {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        /* Form Styles - FIXED TEXT COLOR */
+        .quote-form {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            color: #1a3a5f;
+            margin-bottom: 10px;
+        }
+
+        .form-subtitle {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1a3a5f;
+        }
+
+        .form-group label span {
+            color: #e74c3c;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e1e5eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            color: #333 !important; /* FIXED: Added dark text color */
+            background-color: #fff;
+        }
+
+        .form-control:focus {
+            border-color: #1a3a5f;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 58, 95, 0.1);
+        }
+
+        /* Ensure text stays dark in all states */
+        .form-control,
+        .form-control:focus,
+        .form-control:valid,
+        .form-control:invalid {
+            color: #333 !important;
+        }
+
+        /* Placeholder styling */
+        .form-control::placeholder {
+            color: #6c757d !important;
+            opacity: 1 !important;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        select.form-control {
+            color: #333 !important;
+            background-color: #fff;
+        }
+
+        select.form-control option {
+            color: #333;
+            background-color: #fff;
+        }
+
+        .submit-btn {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #f57c00;
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Form Validation Styles */
+        .form-control.error {
+            border-color: #e74c3c !important;
+            background-color: #fff5f5;
+        }
+
+        .form-control.success {
+            border-color: #2ecc71 !important;
+            background-color: #f9fff9;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Confirmation Message */
+        .confirmation {
+            display: none;
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .confirmation h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .confirmation i {
+            color: #2e7d32;
+            margin-right: 8px;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #ff9800;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .image-section,
+            .form-container {
+                width: 100%;
+            }
+
+            .image-card {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .quotes-content h1 {
+                font-size: 2rem;
+            }
+
+            .quotes-content p {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+
+            .quote-form {
+                padding: 25px;
+            }
+
+            .form-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quotes-content h1 {
+                font-size: 1.7rem;
+            }
+
+            .quote-form,
+            .image-info {
+                padding: 20px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .submit-btn {
+                padding: 14px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <!-- Header Section -->
+    <div class="quotes">
+        <div class="container">
+            <div class="quotes-content">
+                <h1>Request a Free Quote</h1>
+                <p>Tell us about your project and we'll provide you with a detailed quote</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Left Image Section -->
+            <div class="image-section">
+                <div class="image-card">
+                    <img src="./assest/Quote.png"
+                        alt="KS Electrical Services">
+                </div>
+                <div class="image-info">
+                    <h3>Why Choose Us for Your Project?</h3>
+                    <p>Get a professional quote tailored to your specific needs from our experienced team.</p>
+
+                    <div class="info-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Free, no-obligation quotes</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>24-hour response time</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Licensed & insured professionals</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Transparent pricing</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Emergency services available</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote Form -->
+            <div class="form-container">
+                <div class="quote-form">
+                    <h1 class="form-title">Get Your Free Quote</h1>
+                    <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours</p>
+
+                    <form id="quoteRequestForm">
+                        <div class="form-group">
+                            <label for="name">Full Name <span>*</span></label>
+                            <input type="text" class="form-control" id="name" name="name"
+                                placeholder="Enter your full name" required>
+                            <div class="error-message" id="name-error">Please enter your full name</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address <span>*</span></label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Enter your email address" required>
+                            <div class="error-message" id="email-error">Please enter a valid email address</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span>*</span></label>
+                            <input type="tel" class="form-control" id="phone" name="phone"
+                                placeholder="Enter phone number" required>
+                            <div class="error-message" id="phone-error">Please enter a valid phone number</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Select Service <span>*</span></label>
+                            <select class="form-control" id="service" name="service" required>
+                                <option value="" disabled selected>Choose a service...</option>
+                                <optgroup label="Electrical Services">
+                                    <option value="wiring">Wiring & Rewiring</option>
+                                    <option value="appliance">Appliance Installation</option>
+                                    <option value="lighting">Lighting & Panel Works</option>
+                                    <option value="electrical-repairs">Electrical Repairs</option>
+                                </optgroup>
+                                <optgroup label="Plumbing Services">
+                                    <option value="pipe-fitting">Pipe Fitting & Leakage Repair</option>
+                                    <option value="bathroom-plumbing">Bathroom & Kitchen Plumbing</option>
+                                    <option value="water-tank">Water Tank & Motor Works</option>
+                                    <option value="drainage">Drainage Solutions</option>
+                                </optgroup>
+                                <optgroup label="Building Contracts">
+                                    <option value="complete-electrical">Complete Electrical Works</option>
+                                    <option value="complete-plumbing">Complete Plumbing Works</option>
+                                    <option value="residential">Residential Project</option>
+                                    <option value="commercial">Commercial Project</option>
+                                </optgroup>
+                            </select>
+                            <div class="error-message" id="service-error">Please select a service</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location / Address <span>*</span></label>
+                            <input type="text" class="form-control" id="location" name="location"
+                                placeholder="Enter your location" required>
+                            <div class="error-message" id="location-error">Please enter your location</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Problem Description / Project Details <span>*</span></label>
+                            <textarea class="form-control" id="description" name="description"
+                                placeholder="Please describe your requirements in detail..." required></textarea>
+                            <div class="error-message" id="description-error">Please describe your project details</div>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Submit Quote Request
+                        </button>
+
+                        <!-- Loading Spinner -->
+                        <div class="loading-spinner" id="loadingSpinner">
+                            <div class="spinner"></div>
+                            <p>Sending your quote request...</p>
+                        </div>
+                    </form>
+
+                    <div class="confirmation" id="confirmationMessage">
+                        <h3><i class="fas fa-check-circle"></i> Thank You!</h3>
+                        <p>Your quote request has been submitted successfully. We will contact you within 24 hours to
+                            discuss your project.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // First, ensure all form inputs have visible text color
+            const formControls = document.querySelectorAll('.form-control');
+            formControls.forEach(control => {
+                control.style.color = '#333';
+                control.addEventListener('input', function() {
+                    this.style.color = '#333';
+                });
+                control.addEventListener('change', function() {
+                    this.style.color = '#333';
+                });
+            });
+
+            const form = document.getElementById('quoteRequestForm');
+            const confirmationMessage = document.getElementById('confirmationMessage');
+            const serviceSelect = document.getElementById('service');
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+
+            // Function to validate name
+            function validateName(name) {
+                return name.trim().length >= 2 && /^[a-zA-Z\s]+$/.test(name);
+            }
+
+            // Function to validate email
+            function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Function to validate phone number
+            function validatePhone(phone) {
+                const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''));
+            }
+
+            // Function to show error
+            function showError(inputId, errorId, message) {
+                const inputElement = document.getElementById(inputId);
+                inputElement.classList.remove('success');
+                inputElement.classList.add('error');
+                const errorElement = document.getElementById(errorId);
+                errorElement.textContent = message;
+                errorElement.classList.add('show');
+            }
+
+            // Function to show success
+            function showSuccess(inputId, errorId) {
+                const inputElement = document.getElementById(inputId);
+                inputElement.classList.remove('error');
+                inputElement.classList.add('success');
+                const errorElement = document.getElementById(errorId);
+                errorElement.classList.remove('show');
+            }
+
+            // Function to hide error
+            function hideError(inputId, errorId) {
+                const inputElement = document.getElementById(inputId);
+                inputElement.classList.remove('error', 'success');
+                const errorElement = document.getElementById(errorId);
+                errorElement.classList.remove('show');
+            }
+
+            // Real-time validation for name
+            document.getElementById('name').addEventListener('blur', function () {
+                if (!validateName(this.value)) {
+                    showError('name', 'name-error', 'Please enter a valid name (min 2 characters, letters only)');
+                } else {
+                    showSuccess('name', 'name-error');
+                }
+            });
+
+            // Real-time validation for email
+            document.getElementById('email').addEventListener('blur', function () {
+                if (!validateEmail(this.value)) {
+                    showError('email', 'email-error', 'Please enter a valid email address');
+                } else {
+                    showSuccess('email', 'email-error');
+                }
+            });
+
+            // Real-time validation for phone
+            document.getElementById('phone').addEventListener('blur', function () {
+                if (!validatePhone(this.value)) {
+                    showError('phone', 'phone-error', 'Please enter a valid phone number');
+                } else {
+                    showSuccess('phone', 'phone-error');
+                }
+            });
+
+            // Service select validation
+            serviceSelect.addEventListener('change', function () {
+                if (this.value) {
+                    showSuccess('service', 'service-error');
+                }
+            });
+
+            // Function to send quote request via EmailJS
+            function sendQuoteRequest(formData) {
+                // Show loading spinner
+                submitBtn.style.display = 'none';
+                loadingSpinner.style.display = 'block';
+
+                // Prepare template parameters
+                const templateParams = {
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    service: formData.service,
+                    location: formData.location,
+                    description: formData.description,
+                    date: new Date().toLocaleString()
+                };
+
+                // Send email using EmailJS
+                emailjs.send("service_kq01q4f", "template_m1r2oq5", templateParams)
+                    .then(function (response) {
+                        console.log('Email sent successfully!', response.status, response.text);
+
+                        // Hide form and show confirmation
+                        form.style.display = 'none';
+                        loadingSpinner.style.display = 'none';
+                        confirmationMessage.style.display = 'block';
+
+                        // Scroll to confirmation message
+                        confirmationMessage.scrollIntoView({ behavior: 'smooth' });
+
+                        // Reset form
+                        form.reset();
+                    }, function (error) {
+                        console.error('Email send failed:', error);
+
+                        // Show error message
+                        alert('❌ Failed to send quote request. Please try again or contact us directly.');
+
+                        // Reset button state
+                        submitBtn.style.display = 'flex';
+                        loadingSpinner.style.display = 'none';
+                    });
+            }
+
+            // Form submission
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                let isValid = true;
+
+                // Validate name
+                const name = document.getElementById('name').value;
+                if (!name) {
+                    showError('name', 'name-error', 'Please enter your full name');
+                    isValid = false;
+                } else if (!validateName(name)) {
+                    showError('name', 'name-error', 'Please enter a valid name (min 2 characters, letters only)');
+                    isValid = false;
+                }
+
+                // Validate email
+                const email = document.getElementById('email').value;
+                if (!email) {
+                    showError('email', 'email-error', 'Please enter your email address');
+                    isValid = false;
+                } else if (!validateEmail(email)) {
+                    showError('email', 'email-error', 'Please enter a valid email address');
+                    isValid = false;
+                }
+
+                // Validate phone
+                const phone = document.getElementById('phone').value;
+                if (!phone) {
+                    showError('phone', 'phone-error', 'Please enter your phone number');
+                    isValid = false;
+                } else if (!validatePhone(phone)) {
+                    showError('phone', 'phone-error', 'Please enter a valid phone number');
+                    isValid = false;
+                }
+
+                // Validate service selection
+                const service = serviceSelect.value;
+                if (!service) {
+                    showError('service', 'service-error', 'Please select a service');
+                    isValid = false;
+                }
+
+                // Validate location
+                const location = document.getElementById('location').value;
+                if (!location) {
+                    showError('location', 'location-error', 'Please enter your location');
+                    isValid = false;
+                }
+
+                // Validate description
+                const description = document.getElementById('description').value;
+                if (!description) {
+                    showError('description', 'description-error', 'Please describe your project');
+                    isValid = false;
+                } else if (description.length < 10) {
+                    showError('description', 'description-error', 'Please provide more details (min 10 characters)');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Get service text (not just value)
+                    const serviceText = serviceSelect.options[serviceSelect.selectedIndex].text;
+
+                    // Prepare form data
+                    const formData = {
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        service: serviceText,
+                        location: location,
+                        description: description
+                    };
+
+                    // Log for debugging
+                    console.log('Form data:', formData);
+
+                    // Send quote request via EmailJS
+                    sendQuoteRequest(formData);
+                }
+            });
+
+            // Clear errors on input
+            const inputs = form.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('input', function () {
+                    const errorId = this.id + '-error';
+                    hideError(this.id, errorId);
+                });
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

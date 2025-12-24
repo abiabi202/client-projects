@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About KS Electricals | Your Trusted Electrical & Plumbing Partner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="/assest/Tab_logo.png">
+    <link rel="apple-touch-icon" href="/assest/Tab_logo.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+
+        /* Header Section */
+        .about-header {
+            background-color: #1a3a5f;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.9)),
+                url('https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .about-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .about-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .about-content {
+            padding: 10px 0;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1a3a5f;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: #ff9800;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        /* Company Overview */
+        .overview-section {
+            margin-bottom: 80px;
+        }
+
+        .overview-content {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .overview-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .overview-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .overview-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            transition: transform 0.5s ease;
+        }
+
+        .overview-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Stats in overview */
+        .overview-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .overview-stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff9800;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .stat-number::after {
+            content: '+';
+            color: #ff9800;
+        }
+
+        .stat-label {
+            color: #1a3a5f;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Mission & Vision */
+        .mission-vision-section {
+            margin-bottom: 80px;
+        }
+
+        .mv-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .mv-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .mv-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #1a3a5f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 25px;
+        }
+
+        .mv-card h3 {
+            color: #1a3a5f;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .mv-card p {
+            color: #666;
+        }
+
+        /* Experience & Expertise Section */
+        .expertise-section {
+            margin-bottom: 80px;
+        }
+
+        .expertise-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .expertise-stat-card {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .expertise-stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expertise-stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ff9800;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .expertise-stat-number::after {
+            content: '+';
+            color: #ff9800;
+        }
+
+        .expertise-stat-label {
+            color: #1a3a5f;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .expertise-content {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .expertise-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .expertise-item {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            background-color: #e9f5ff;
+        }
+
+        .expertise-icon {
+            color: #ff9800;
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+
+        /* Service Areas */
+        .areas-section {
+            margin-bottom: 80px;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .area-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .area-card:hover {
+            border-color: #ff9800;
+            transform: translateY(-5px);
+        }
+
+        .area-icon {
+            font-size: 2.5rem;
+            color: #1a3a5f;
+            margin-bottom: 20px;
+        }
+
+        .area-card h4 {
+            color: #1a3a5f;
+            margin-bottom: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: #1a3a5f;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 80px;
+        }
+
+        .cta-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-primary-custom {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #f57c00;
+            transform: translateY(-3px);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-secondary-custom {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-secondary-custom:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .overview-content {
+                flex-direction: column;
+            }
+
+            .mv-card {
+                min-width: 100%;
+            }
+
+            .expertise-stats {
+                gap: 20px;
+            }
+
+            .expertise-stat-card {
+                min-width: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-header h1 {
+                font-size: 2rem;
+            }
+
+            .about-header p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .overview-content,
+            .mv-card,
+            .expertise-content,
+            .area-card {
+                padding: 25px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .overview-stats {
+                gap: 20px;
+            }
+
+            .overview-stat {
+                flex: 1;
+                min-width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .stat-number,
+            .expertise-stat-number {
+                font-size: 2.5rem;
+            }
+
+            .areas-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Placeholder -->
+    <div id="header"></div>
+
+    <!-- About Header Section -->
+    <section class="about-header">
+        <div class="container">
+            <h1>About KS Electricals</h1>
+            <p>Your trusted partner for comprehensive electrical, plumbing, and building solutions since 2005</p>
+        </div>
+    </section>
+
+    <!-- Company Overview -->
+    <section class="overview-section about-content">
+        <div class="container">
+            <div class="overview-content">
+                <div class="overview-text">
+                    <h3 class="mb-4" style="color: #1a3a5f;">Building Trust Since 2005</h3>
+                    <p class="mb-4">Founded in 2005, KS Electricals has grown from a small electrical repair service
+                        into a full-service electrical, plumbing, and building contractor serving residential and
+                        commercial clients across the region.</p>
+                    <p class="mb-4">Our journey began with a simple mission: to provide reliable, high-quality
+                        electrical services with honesty and integrity. Over the years, we've expanded our expertise to
+                        include plumbing and complete building solutions, always maintaining our commitment to
+                        exceptional workmanship and customer satisfaction.</p>
+                    <p class="mb-4">Today, we're proud to be a licensed, insured, and trusted partner for hundreds of
+                        satisfied customers. Our team of skilled professionals brings years of experience and continuous
+                        training to every project, ensuring the highest standards of safety and quality.</p>
+                    <div class="overview-stats">
+                        <div class="overview-stat">
+                            <div class="stat-number" data-target="18">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="overview-stat">
+                            <div class="stat-number" data-target="500">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overview-image">
+                    <img src="./assest/About.png" alt="KS Electricals Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision-section about-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission & Vision</h2>
+                <p>The guiding principles that drive our commitment to excellence</p>
+            </div>
+
+            <div class="mv-cards">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To provide exceptional electrical, plumbing, and building services through skilled craftsmanship,
+                        innovative solutions, and unwavering commitment to customer satisfaction. We aim to build
+                        lasting relationships based on trust, reliability, and superior service quality.</p>
+                </div>
+
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be the leading provider of integrated building solutions in our region, recognized for
+                        excellence in safety, innovation, and customer service. We envision a future where every home
+                        and business operates efficiently with reliable electrical and plumbing systems.</p>
+                </div>
+
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Our Values</h3>
+                    <p>Integrity, quality, safety, and customer focus are the core values that guide every decision we
+                        make. We believe in transparent communication, fair pricing, and delivering work that stands the
+                        test of time while ensuring the safety of our clients and team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Expertise -->
+    <section class="expertise-section about-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience & Expertise</h2>
+                <p>Our track record of excellence and specialized skills</p>
+            </div>
+
+            <div class="expertise-stats">
+                <div class="expertise-stat-card">
+                    <div class="expertise-stat-number" data-target="100">0</div>
+                    <div class="expertise-stat-label">Happy Clients</div>
+                </div>
+                <div class="expertise-stat-card">
+                    <div class="expertise-stat-number" data-target="18">0</div>
+                    <div class="expertise-stat-label">Years Experience</div>
+                </div>
+                <div class="expertise-stat-card">
+                    <div class="expertise-stat-number" data-target="500">0</div>
+                    <div class="expertise-stat-label">Projects Completed</div>
+                </div>
+                <div class="expertise-stat-card">
+                    <div class="expertise-stat-number" data-target="24">0</div>
+                    <div class="expertise-stat-label">Hour Service</div>
+                </div>
+            </div>
+
+            <div class="expertise-content">
+                <h3 class="mb-4" style="color: #1a3a5f;">Our Specialized Expertise</h3>
+                <p>Our team of certified electricians and plumbers brings specialized knowledge across various domains:</p>
+                
+                <div class="expertise-list">
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h5 style="color: #1a3a5f;">Electrical System Design</h5>
+                            <p class="mb-0">Custom electrical solutions for residential and commercial spaces</p>
+                        </div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div>
+                            <h5 style="color: #1a3a5f;">Plumbing Solutions</h5>
+                            <p class="mb-0">Complete plumbing systems installation and maintenance</p>
+                        </div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <h5 style="color: #1a3a5f;">Motor Rewinding</h5>
+                            <p class="mb-0">Professional motor repair and rewinding services</p>
+                        </div>
+                    </div>
+                    <div class="expertise-item">
+                        <div class="expertise-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div>
+                            <h5 style="color: #1a3a5f;">Solar Solutions</h5>
+                            <p class="mb-0">Solar panel installation and renewable energy systems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="areas-section about-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Service Areas</h2>
+                <p>We proudly serve residential and commercial clients throughout the region</p>
+            </div>
+
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4>Residential Services</h4>
+                    <p>Complete electrical and plumbing solutions for homes, apartments, and residential complexes</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h4>Commercial Projects</h4>
+                    <p>Electrical and plumbing systems for offices, retail spaces, and commercial buildings</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h4>Industrial Solutions</h4>
+                    <p>Heavy-duty electrical systems and industrial plumbing for manufacturing facilities</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h4>Hospitality Sector</h4>
+                    <p>Specialized services for hotels, restaurants, and hospitality establishments</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h4>Educational Institutions</h4>
+                    <p>Electrical and plumbing systems for schools, colleges, and universities</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h4>Healthcare Facilities</h4>
+                    <p>Critical systems for hospitals, clinics, and healthcare centers</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h4>Motor Rewinding Services</h4>
+                    <p>Professional motor rewinding and repair services for domestic and industrial motors</p>
+                </div>
+
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h4>Electronic Appliance Servicing</h4>
+                    <p>Repair and maintenance of electronic appliances including fans, mixers, pumps, and more</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section about-content">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Contact us today for a free consultation and quote. Our team is ready to help you with all your electrical and plumbing needs.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+1234567890" class="btn-primary-custom">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="mailto:info@kselectricals.com" class="btn-secondary-custom">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Placeholder -->
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Counter animation function
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const step = Math.ceil(target / (duration / 16)); // 60fps
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = current;
+            }, 16); // ~60fps
+        }
+
+        // Intersection Observer for counter animation
+        document.addEventListener('DOMContentLoaded', function () {
+            const counters = document.querySelectorAll('.stat-number, .expertise-stat-number');
+            
+            // Initial state
+            counters.forEach(counter => {
+                counter.style.opacity = '0';
+                counter.style.transform = 'translateY(20px)';
+                counter.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        
+                        // Animate appearance
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                        
+                        // Start counter animation if not already animated
+                        if (!element.classList.contains('animated')) {
+                            element.classList.add('animated');
+                            setTimeout(() => {
+                                animateCounter(element);
+                            }, 300); // Delay counter start after element appears
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all counter elements
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+
+            // Fade-in animation for other elements
+            const fadeElements = document.querySelectorAll('.mv-card, .area-card, .expertise-item');
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+
+            const fadeObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const delay = parseInt(element.getAttribute('data-delay')) || 0;
+                        
+                        setTimeout(() => {
+                            element.style.opacity = '1';
+                            element.style.transform = 'translateY(0)';
+                        }, delay);
+                        
+                        fadeObserver.unobserve(element); // Only animate once
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Apply staggered delays for cards
+            fadeElements.forEach((element, index) => {
+                element.setAttribute('data-delay', (index % 4) * 100);
+                fadeObserver.observe(element);
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
